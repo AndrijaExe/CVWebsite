@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { projects, links } from '../data/content'
+import type { ProjectItem } from '../data/content'
 
 const assetUrl = (src?: string) => {
   if (!src) return src as unknown as string
@@ -39,7 +40,7 @@ const iconForTech = (label: string) => {
   return svg('M12 2a10 10 0 100 20 10 10 0 000-20z')
 }
 
-const Projects = () => {
+const Projects = ({ projectsList = projects }: { projectsList?: ProjectItem[] }) => {
   const [lightbox, setLightbox] = useState<null | { items: { src: string; caption: string }[]; index: number; project: string }>(null)
 
   const close = () => setLightbox(null)
@@ -58,11 +59,9 @@ const Projects = () => {
   }, [lightbox])
 
   return (
-    <section id="projects" className="section">
-      <div className="container">
-        <h2>Projects</h2>
-        <div className="projects-list">
-          {projects.map((p) => (
+    <>
+      <div className="projects-list">
+        {projectsList.map((p) => (
             <article key={p.name} className={`card project-item${p.featured ? ' featured' : ''}`}>
               <header>
                 <h3 style={{ marginTop: 0 }}>{p.name}</h3>
@@ -82,7 +81,6 @@ const Projects = () => {
                     <source src={assetUrl(p.videoUrl)} type="video/mp4" />
                     Your browser does not support the video tag.
                   </video>
-                  <div className="card-actions"><a className="btn outline" href={assetUrl(p.videoUrl)} target="_blank" rel="noreferrer">Open video</a></div>
                 </div>
               )}
 
@@ -148,8 +146,7 @@ const Projects = () => {
             </div>
           </div>
         )}
-      </div>
-    </section>
+    </>
   )
 }
 

@@ -47,6 +47,18 @@ export type ExperienceItem = {
 
 export const experience: ExperienceItem[] = [
   {
+    title: 'Full Stack Developer — Devione',
+    period: 'November 2025 — Present',
+    description:
+      'Working as a Full Stack Developer on web development projects, contributing to both frontend and backend solutions.',
+  },
+  {
+    title: 'Microsoft Development Center — Invite-Only Event',
+    period: 'Belgrade, November 2025',
+    description:
+      'Attended an exclusive invite-only event at the Microsoft Development Center in Belgrade after successfully passing the coding test for a Software Developer position.',
+  },
+  {
     title: 'Self-driven creator — Games, websites, and software',
     description:
       'Focused on building projects to sharpen skills across game development and web technologies; continually experimenting with new tools and frameworks.',
@@ -128,25 +140,7 @@ export type ProjectItem = {
   highlights?: string[]
 }
 
-export const projects: ProjectItem[] = [
-  {
-    name: 'UE5 Horror Game — Awaken',
-    description:
-      'Psychological horror game built in Unreal Engine 5.4.4 over ~2 months. Single-player, Blueprint scripting, Windows installer.',
-    codeUrl: 'https://github.com/AndrijaExe/Awaken',
-    installerUrl: 'https://www.dropbox.com/scl/fi/epqmidlwps1pcyipv769i/Awaken-Final-Version-Installer.exe?rlkey=4f50xfbu0ppnhsz1rjkequucz&st=l7gys8nv&dl=0',
-    images: [
-      '/awaken/AI that is chasing you.png',
-      '/awaken/Battery healt and time.png',
-      '/awaken/Clues that you must collect.png',
-      '/awaken/Main Menu.png',
-      '/awaken/Pause Menu.png',
-      '/awaken/Settings Menu.png',
-    ],
-    videoUrl: '/awaken/trailer.mp4',
-    tags: ['Unreal Engine 5', 'Blueprints', 'Windows', 'Inno Setup'],
-    featured: true,
-  },
+export const webProjects: ProjectItem[] = [
   {
     name: 'MovieVerse — Full‑Stack web app',
     description:
@@ -178,6 +172,59 @@ export const projects: ProjectItem[] = [
     ],
   },
 ]
+
+export const gameProjects: ProjectItem[] = [
+  {
+    name: 'UE5 Horror Game — Awaken',
+    description:
+      'Psychological horror game built in Unreal Engine 5.4.4 over ~2 months. Single-player, Blueprint scripting, Windows installer.',
+    codeUrl: 'https://github.com/AndrijaExe/Awaken',
+    installerUrl: 'https://www.dropbox.com/scl/fi/epqmidlwps1pcyipv769i/Awaken-Final-Version-Installer.exe?rlkey=4f50xfbu0ppnhsz1rjkequucz&st=l7gys8nv&dl=0',
+    images: [
+      '/awaken/AI that is chasing you.png',
+      '/awaken/Battery healt and time.png',
+      '/awaken/Clues that you must collect.png',
+      '/awaken/Main Menu.png',
+      '/awaken/Pause Menu.png',
+      '/awaken/Settings Menu.png',
+    ],
+    videoUrl: '/awaken/trailer.mp4',
+    tags: ['Unreal Engine 5', 'Blueprints', 'Windows', 'Inno Setup'],
+    featured: true,
+  },
+  {
+    name: 'Dungeon Escape',
+    description:
+      'A 3D dungeon escape game where I implemented puzzle mechanics, crafted atmospheric environments with advanced lighting effects, and developed C++ systems for item interaction and inventory management.',
+    images: [
+      '/dungeonEscape/EnginePhoto.png',
+      '/dungeonEscape/CollectableItemCPP.png',
+      '/dungeonEscape/InteractFunctionality.png',
+      '/dungeonEscape/LockCPPClass.png',
+      '/dungeonEscape/MoverComponentCPP.png',
+    ],
+    videoUrl: '/dungeonEscape/DungeonEscapeIntro.mp4',
+    tags: ['Unreal Engine 5', 'C++', 'GameDev.tv Course'],
+    featured: false,
+  },
+  {
+    name: 'Obstacle Assault',
+    description:
+      'A 3D platformer where I customized player input systems, created C++ scripts for dynamic moving platforms, and focused on level design to deliver the best possible user experience.',
+    images: [
+      '/obstacleAssault/EditorPhoto.png',
+      '/obstacleAssault/Code2.png',
+      '/obstacleAssault/MovingPlatformCode.png',
+    ],
+    videoUrl: '/obstacleAssault/ObstacleAssaultIntro.mp4',
+    tags: ['Unreal Engine 5', 'C++', 'GameDev.tv Course'],
+    featured: false,
+  },
+]
+
+// Legacy export for compatibility
+export const projects: ProjectItem[] = [...webProjects, ...gameProjects]
+
 
 export const extras = [
   'Driving license — Category B',

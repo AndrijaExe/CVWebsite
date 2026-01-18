@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { profile } from '../data/content'
 
 const Navbar = () => {
@@ -7,19 +8,15 @@ const Navbar = () => {
   return (
     <header className="navbar">
       <nav className="container">
-        <a className="brand" href="#hero">{profile.firstName} {profile.lastName}</a>
+        <Link className="brand" to="/">{profile.firstName} {profile.lastName}</Link>
         <button className="nav-toggle" aria-label="Toggle menu" aria-expanded={open} onClick={() => setOpen(!open)}>
           <span className="bar" />
           <span className="bar" />
           <span className="bar" />
         </button>
         <ul className={open ? 'open' : undefined} onClick={() => setOpen(false)}>
-          <li><a href="#about">About</a></li>
-          <li><a href="#education">Education</a></li>
-          <li><a href="#experience">Experience</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#skills">Skills</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><Link to="/">Web Development</Link></li>
+          <li><Link to="/games">Game Development</Link></li>
         </ul>
       </nav>
     </header>

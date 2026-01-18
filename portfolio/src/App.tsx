@@ -1,29 +1,24 @@
 import './App.css'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Navbar from './components/Navbar.tsx'
-import Hero from './components/Hero.tsx'
-import About from './components/About.tsx'
-import Education from './components/Education.tsx'
-import Experience from './components/Experience.tsx'
-import Projects from './components/Projects.tsx'
-import Skills from './components/Skills.tsx'
-import Contact from './components/Contact.tsx'
 import Footer from './components/Footer.tsx'
+import WebCV from './pages/WebCV.tsx'
+import Games from './pages/Games.tsx'
 
 function App() {
   return (
-    <div className="app-root">
-      <Navbar />
-      <main>
-        <Hero />
-        <About />
-  <Education />
-  <Experience />
-        <Projects />
-        <Skills />
-        <Contact />
-      </main>
-      <Footer />
-    </div>
+    <Router basename="/CVWebsite">
+      <div className="app-root">
+        <Navbar />
+        <main>
+          <Routes>
+            <Route path="/" element={<WebCV />} />
+            <Route path="/games" element={<Games />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
+    </Router>
   )
 }
 

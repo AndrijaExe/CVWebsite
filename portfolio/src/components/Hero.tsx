@@ -1,22 +1,65 @@
 import { profile as me, links } from '../data/content'
+import { useScrollAnimation } from '../hooks/useScrollAnimation'
+import { useTypingEffect } from '../hooks/useTypingEffect'
 
 const base = import.meta.env.BASE_URL || '/'
 const avatar = links.github ? `${links.github}.png` : `${base}vite.svg`
 
 const Hero = () => {
+  const avatarAnimation = useScrollAnimation({ threshold: 0.3 })
+  const textAnimation = useScrollAnimation({ threshold: 0.3, delay: 100 })
+  const ctaAnimation = useScrollAnimation({ threshold: 0.3, delay: 200 })
+  
+  const typingText = useTypingEffect({
+    words: [
+      'Full Stack Developer',
+      'Game Developer',
+      'Software Engineer',
+      'Unreal Engine Developer',
+    ],
+    typingSpeed: 100,
+    deletingSpeed: 50,
+    pauseDuration: 2000,
+    loop: true,
+    mistakeChance: 0.15, // 15% chance to make a typing mistake
+  })
+
   return (
     <section id="hero" className="section hero">
       <div className="container hero-inner">
         <img
-          className="avatar"
+          ref={avatarAnimation.ref as React.RefObject<HTMLImageElement>}
+          className={`avatar scale-in ${avatarAnimation.isVisible ? 'visible' : ''}`}
           src={avatar}
           onError={(e) => { (e.currentTarget as HTMLImageElement).src = `${base}vite.svg` }}
           alt={`Profile — ${me.firstName} ${me.lastName}`}
         />
           <div className="hero-text">
-            <h1>Hello, I'm {me.firstName} {me.lastName}</h1>
-            <p>{me.headline}</p>
-          <div className="hero-ctas">
+            <h1
+              ref={textAnimation.ref as React.RefObject<HTMLHeadingElement>}
+              className={`slide-left ${textAnimation.isVisible ? 'visible' : ''}`}
+            >
+              Hello, I'm {me.firstName} {me.lastName}
+            </h1>
+            <p 
+              className={`hero-typing slide-left ${textAnimation.isVisible ? 'visible' : ''}`}
+              style={{ 
+                minHeight: '1.5em',
+                color: 'var(--primary)',
+                fontWeight: 600,
+                fontSize: '1.1rem',
+                marginBottom: '0.5rem'
+              }}
+            >
+              {typingText}<span className="typing-cursor">|</span>
+            </p>
+            <p className={`slide-left ${textAnimation.isVisible ? 'visible' : ''}`}>
+              {me.headline}
+            </p>
+          <div 
+            ref={ctaAnimation.ref as React.RefObject<HTMLDivElement>}
+            className={`hero-ctas stagger-children ${ctaAnimation.isVisible ? 'visible' : ''}`}
+          >
             <a className="btn primary" href="#projects">See projects</a>
             <a className="btn" href="#contact">Contact me</a>
             {links.github && <a className="btn outline" href={links.github} target="_blank" rel="noreferrer">GitHub</a>}

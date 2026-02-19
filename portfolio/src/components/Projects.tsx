@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { projects, links } from '../data/content'
 import type { ProjectItem } from '../data/content'
+import { useScrollAnimation } from '../hooks/useScrollAnimation'
 
 const assetUrl = (src?: string) => {
   if (!src) return src as unknown as string
@@ -42,6 +43,7 @@ const iconForTech = (label: string) => {
 
 const Projects = ({ projectsList = projects }: { projectsList?: ProjectItem[] }) => {
   const [lightbox, setLightbox] = useState<null | { items: { src: string; caption: string }[]; index: number; project: string }>(null)
+  const projectsAnimation = useScrollAnimation({ threshold: 0.1 })
 
   const close = () => setLightbox(null)
   const prev = () => setLightbox((lb) => (lb ? { ...lb, index: (lb.index - 1 + lb.items.length) % lb.items.length } : lb))
@@ -60,7 +62,10 @@ const Projects = ({ projectsList = projects }: { projectsList?: ProjectItem[] })
 
   return (
     <>
-      <div className="projects-list">
+      <div 
+        ref={projectsAnimation.ref as React.RefObject<HTMLDivElement>}
+        className={`projects-list stagger-children ${projectsAnimation.isVisible ? 'visible' : ''}`}
+      >
         {projectsList.map((p) => (
             <article key={p.name} className={`card project-item${p.featured ? ' featured' : ''}`}>
               <header>

@@ -6,8 +6,11 @@ import Projects from '../components/Projects'
 import Skills from '../components/Skills'
 import Contact from '../components/Contact'
 import { webProjects } from '../data/content'
+import { useScrollAnimation } from '../hooks/useScrollAnimation'
 
 const WebCV = () => {
+  const projectsTitleAnimation = useScrollAnimation({ threshold: 0.2 })
+
   return (
     <>
       <Hero />
@@ -16,7 +19,12 @@ const WebCV = () => {
       <Experience />
       <section id="projects" className="section">
         <div className="container">
-          <h2>Web Development Projects</h2>
+          <h2 
+            ref={projectsTitleAnimation.ref as React.RefObject<HTMLHeadingElement>}
+            className={`animate-on-scroll ${projectsTitleAnimation.isVisible ? 'visible' : ''}`}
+          >
+            Web Development Projects
+          </h2>
           <Projects projectsList={webProjects} />
         </div>
       </section>

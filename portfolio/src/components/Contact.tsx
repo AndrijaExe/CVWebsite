@@ -1,10 +1,13 @@
 import { useState } from 'react'
+import { useScrollAnimation } from '../hooks/useScrollAnimation'
 
 const formspreeEndpoint = (import.meta.env.VITE_FORMSPREE_ENDPOINT as string | undefined) || 'https://formspree.io/f/xjkadvwd'
 
 const Contact = () => {
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle')
   const [error, setError] = useState<string | null>(null)
+  const titleAnimation = useScrollAnimation({ threshold: 0.2 })
+  const formAnimation = useScrollAnimation({ threshold: 0.2, delay: 50 })
 
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -45,9 +48,18 @@ const Contact = () => {
   return (
     <section id="contact" className="section">
       <div className="container">
-        <h2>Contact</h2>
+        <h2 
+          ref={titleAnimation.ref as React.RefObject<HTMLHeadingElement>}
+          className={`animate-on-scroll ${titleAnimation.isVisible ? 'visible' : ''}`}
+        >
+          Contact
+        </h2>
         
-        <form className="contact-form" onSubmit={onSubmit}>
+        <form 
+          ref={formAnimation.ref as React.RefObject<HTMLFormElement>}
+          className={`contact-form animate-on-scroll ${formAnimation.isVisible ? 'visible' : ''}`}
+          onSubmit={onSubmit}
+        >
           <div className="row">
             <input type="text" name="name" placeholder="Name" required />
             <input type="email" name="email" placeholder="Email" required />

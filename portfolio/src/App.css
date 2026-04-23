@@ -391,6 +391,10 @@ main {
 /* Projects gallery */
 .projects-list { display: grid; gap: 1rem; max-width: 100%; }
 .project-item { display: grid; gap: 0.75rem; max-width: 100%; }
+.project-item p,
+.project-item .skill-list li {
+  overflow-wrap: anywhere;
+}
 .gallery-row { 
   display: grid; 
   gap: 0.5rem; 
@@ -453,6 +457,38 @@ main {
 .footer .link { color: var(--text); text-decoration: underline; text-underline-offset: 3px; transition: color .15s ease; }
 .footer .link:hover { color: var(--primary); }
 
+/* Scroll to top button */
+.scroll-top-btn {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: color-mix(in oklab, var(--panel), transparent 5%);
+  color: var(--heading);
+  font-size: 1.1rem;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 40;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(10px);
+  transition: opacity .2s ease, transform .2s ease, border-color .2s ease;
+}
+.scroll-top-btn.visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+.scroll-top-btn:hover {
+  border-color: var(--primary);
+}
+
 /* Lightbox */
 .lightbox-backdrop { position: fixed; inset: 0; background: rgba(0,0,0,0.7); display: flex; align-items: center; justify-content: center; padding: 1rem; z-index: 1000; }
 .lightbox { position: relative; max-width: min(96vw, 1200px); width: 100%; background: var(--panel); border: 1px solid var(--border); border-radius: 12px; box-shadow: 0 10px 40px rgba(0,0,0,0.6); }
@@ -512,4 +548,8 @@ main {
   .lightbox-nav { width: 32px; height: 32px; font-size: 18px; }
   .lightbox-nav.left { left: 4px; }
   .lightbox-nav.right { right: 4px; }
+  .scroll-top-btn {
+    right: 0.75rem;
+    bottom: 0.75rem;
+  }
 }

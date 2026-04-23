@@ -16,8 +16,8 @@ const Navbar = () => {
         </button>
         <ul className={open ? 'open' : undefined} onClick={() => setOpen(false)}>
           <li><Link to="/">Web Development</Link></li>
-          <li><a href={`${import.meta.env.BASE_URL}games#unreal`}>Unreal Games</a></li>
-          <li><a href={`${import.meta.env.BASE_URL}games#unity`}>Unity Games</a></li>
+          <li><Link to="/games#unreal">Unreal Games</Link></li>
+          <li><Link to="/games#unity">Unity Games</Link></li>
         </ul>
       </nav>
     </header>

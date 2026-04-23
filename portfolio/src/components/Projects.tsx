@@ -121,10 +121,11 @@ const Projects = ({ projectsList = projects }: { projectsList?: ProjectItem[] })
                 </ul>
               ) : null}
 
-              {(p.demoUrl || p.codeUrl || p.installerUrl) && (
+              {(p.demoUrl || p.codeUrl || p.backendUrl || p.installerUrl) && (
                 <div className="card-actions">
                   {p.demoUrl && <a className="btn" href={p.demoUrl} target="_blank" rel="noreferrer">Live Demo</a>}
                   {p.codeUrl && <a className="btn outline" href={p.codeUrl} target="_blank" rel="noreferrer">Source</a>}
+                  {p.backendUrl && <a className="btn outline" href={p.backendUrl} target="_blank" rel="noreferrer">Backend Repo</a>}
                   {p.installerUrl && <a className="btn" href={p.installerUrl} target="_blank" rel="noreferrer">Download</a>}
                 </div>
               )}

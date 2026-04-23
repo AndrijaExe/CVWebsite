@@ -132,6 +132,7 @@ export type ProjectItem = {
   description?: string
   demoUrl?: string
   codeUrl?: string
+  backendUrl?: string
   images?: string[]
   videoUrl?: string
   installerUrl?: string
@@ -174,6 +175,58 @@ export const webProjects: ProjectItem[] = [
 ]
 
 export const gameProjects: ProjectItem[] = [
+  {
+    name: 'TIC-TAC-TOE',
+    description:
+      'A polished browser-playable Tic-Tac-Toe game made in Unity. The UI is intentionally minimalist because the focus for this assignment was backend/gameplay functionality, architecture, and clean system separation.',
+    demoUrl: 'https://andrijaexe.itch.io/tic-tac-toe',
+    codeUrl: 'https://github.com/AndrijaExe/TwoDesperados_TicTacToe',
+    images: [
+      '/tictactoe/main-menu.png',
+      '/tictactoe/game-scene.png',
+      '/tictactoe/round-end-modal.png',
+      '/tictactoe/game-controller.png',
+      '/tictactoe/board-view.png',
+      '/tictactoe/cell-view.png',
+      '/tictactoe/game-controller-under-the-hood.png',
+    ],
+    tags: ['Unity', 'C#', 'HTML5', 'Game Architecture'],
+    highlights: [
+      'Play in browser (cloud build): https://andrijaexe.itch.io/tic-tac-toe',
+      'Source code: https://github.com/AndrijaExe/TwoDesperados_TicTacToe',
+      'Architecture is layered to keep gameplay logic separate from presentation and scene flow.',
+      'Code hierarchy by responsibility: GameController (highest level) -> BoardView (contains cells) -> CellView (single board cell).',
+      'UI is intentionally minimal; priority was robust gameplay/backend functionality and maintainable code structure.',
+    ],
+  },
+  {
+    name: 'Loop 9',
+    description:
+      'Loop 9 is a psychological horror game inspired by titles like The Exit 8, focused on perception, anomalies, and reality manipulation. The player is trapped in an office and must recognize subtle environmental changes to progress through loops while communicating with an adaptive AI entity through an in-game phone chat.',
+    backendUrl: 'https://github.com/AndrijaExe/Loop9_backend',
+    images: [
+      '/loop9/main-menu.png',
+      '/loop9/ai-integration-1.png',
+      '/loop9/ai-integration-2.png',
+      '/loop9/ai-integration-3.png',
+      '/loop9/ai-integration-4.png',
+      '/loop9/ai-integration-5.png',
+      '/loop9/anomaly-management-1.png',
+      '/loop9/anomaly-management-2.png',
+      '/loop9/button-component.png',
+    ],
+    tags: ['Unreal Engine 5', 'C++', 'Blueprints', 'AI Gameplay Systems'],
+    featured: true,
+    highlights: [
+      'The AI can help, lie, manipulate player choices, or evolve a relationship with the player.',
+      'Core loop system: each loop is a new iteration of the same space with anomaly variations.',
+      'Player decisions about what is "wrong" directly impact game progression and AI behavior.',
+      'Adaptive AI parameters: Trust, Kindness, Suspicion, Cooperation, Dependency, and hidden AI Stability.',
+      'These hidden values change AI tone, memory behavior across loops, and drive multiple endings.',
+      'Primary interaction is a phone-based chat where AI replies in real time based on game state.',
+      'Backend repository: https://github.com/AndrijaExe/Loop9_backend',
+    ],
+  },
   {
     name: 'UE5 Horror Game — Awaken',
     description:

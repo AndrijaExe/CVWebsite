@@ -3,6 +3,7 @@ import { profile, contact, links } from '../data/content'
 const Footer = () => (
   <footer className="footer">
     <div className="container">
+  <p className="footer-mark">FILE CLOSED</p>
   <p>© {new Date().getFullYear()} {profile.firstName} {profile.lastName} — {contact.city}, {contact.country}</p>
   <p className="muted" style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>Find me on
     {links.github && (

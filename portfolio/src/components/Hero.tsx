@@ -36,22 +36,15 @@ const Hero = () => {
           alt={`Profile — ${me.firstName} ${me.lastName}`}
         />
           <div className="hero-text">
+            <p className="hero-kicker">Personnel file · Novi Sad</p>
             <h1
               ref={textAnimation.ref as React.RefObject<HTMLHeadingElement>}
               className={`slide-left ${textAnimation.isVisible ? 'visible' : ''}`}
             >
-              Hello, I'm {me.firstName} {me.lastName}
+              <span className="hero-first">{me.firstName}</span>
+              <span className="hero-last">{me.lastName}</span>
             </h1>
-            <p 
-              className={`hero-typing slide-left ${textAnimation.isVisible ? 'visible' : ''}`}
-              style={{ 
-                minHeight: '1.5em',
-                color: 'var(--primary)',
-                fontWeight: 600,
-                fontSize: '1.1rem',
-                marginBottom: '0.5rem'
-              }}
-            >
+            <p className={`hero-typing slide-left ${textAnimation.isVisible ? 'visible' : ''}`}>
               {typingText}<span className="typing-cursor">|</span>
             </p>
             <p className={`slide-left ${textAnimation.isVisible ? 'visible' : ''}`}>

@@ -49,14 +49,12 @@ const Games = () => {
         <h2 
           ref={titleAnimation.ref as React.RefObject<HTMLHeadingElement>}
           className={`animate-on-scroll ${titleAnimation.isVisible ? 'visible' : ''}`}
-          style={{ textAlign: 'center' }}
         >
           Game Development Projects
         </h2>
         <p 
           ref={descAnimation.ref as React.RefObject<HTMLParagraphElement>}
-          className={`animate-on-scroll ${descAnimation.isVisible ? 'visible' : ''}`}
-          style={{ marginBottom: '2rem', maxWidth: '800px', margin: '0 auto 2rem', fontSize: '1.1rem', textAlign: 'center' }}
+          className={`lede animate-on-scroll ${descAnimation.isVisible ? 'visible' : ''}`}
         >
           Flagship work is Loop 9, a Steam psychological horror in Unreal C++ with a live AI companion.
           Below that: earlier Unreal titles, course projects, and Unity work.
@@ -74,7 +72,7 @@ const Games = () => {
           <h3
             ref={courseTitleAnimation.ref as React.RefObject<HTMLHeadingElement>}
             className={`animate-on-scroll ${courseTitleAnimation.isVisible ? 'visible' : ''}`}
-            style={{ marginTop: '1rem', marginBottom: '1rem', textAlign: 'center' }}
+            style={{ marginTop: '1rem', marginBottom: '1rem' }}
           >
             Unreal Games
           </h3>
@@ -98,14 +96,11 @@ const Games = () => {
           <>
             <h3
               className={`animate-on-scroll ${courseTitleAnimation.isVisible ? 'visible' : ''}`}
-              style={{ marginTop: '3rem', marginBottom: '1rem', textAlign: 'center' }}
+              style={{ marginTop: '3rem', marginBottom: '1rem' }}
             >
               Unreal Engine C++ Course Projects
             </h3>
-            <p 
-              className={`muted animate-on-scroll ${courseTitleAnimation.isVisible ? 'visible' : ''}`}
-              style={{ marginBottom: '2rem', maxWidth: '800px', margin: '0 auto 2rem', textAlign: 'center' }}
-            >
+            <p className={`lede animate-on-scroll ${courseTitleAnimation.isVisible ? 'visible' : ''}`}>
               The following games were created following the Udemy course: <strong>"Unreal Engine 5 C++ Game Development (Fully Updated in 5.6)"</strong> by GameDev.tv, 
               officially verified by Epic Games. These projects demonstrate C++ programming, game mechanics implementation, and Unreal Engine 5 development skills.
             </p>
@@ -119,14 +114,11 @@ const Games = () => {
             <h3
               ref={unityTitleAnimation.ref as React.RefObject<HTMLHeadingElement>}
               className={`animate-on-scroll ${unityTitleAnimation.isVisible ? 'visible' : ''}`}
-              style={{ marginTop: '3rem', marginBottom: '1rem', textAlign: 'center' }}
+              style={{ marginTop: '3rem', marginBottom: '1rem' }}
             >
               Unity Games
             </h3>
-            <p
-              className={`muted animate-on-scroll ${unityTitleAnimation.isVisible ? 'visible' : ''}`}
-              style={{ marginBottom: '2rem', maxWidth: '800px', margin: '0 auto 2rem', textAlign: 'center' }}
-            >
+            <p className={`lede animate-on-scroll ${unityTitleAnimation.isVisible ? 'visible' : ''}`}>
               This section includes my Unity projects, with focus on gameplay architecture and clean system design.
             </p>
             <Projects projectsList={unityGames} />

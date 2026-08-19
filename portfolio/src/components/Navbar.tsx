@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { profile } from '../data/content'
 
 const Navbar = () => {
   const [open, setOpen] = useState(false)
@@ -8,7 +7,7 @@ const Navbar = () => {
   return (
     <header className="navbar">
       <nav className="container">
-        <Link className="brand" to="/">{profile.firstName} {profile.lastName}</Link>
+        <Link className="brand" to="/">A. Stanišić</Link>
         <button className="nav-toggle" aria-label="Toggle menu" aria-expanded={open} onClick={() => setOpen(!open)}>
           <span className="bar" />
           <span className="bar" />

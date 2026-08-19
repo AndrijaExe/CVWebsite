@@ -4,7 +4,8 @@ import { useScrollAnimation } from '../hooks/useScrollAnimation'
 import { useTypingEffect } from '../hooks/useTypingEffect'
 
 const base = import.meta.env.BASE_URL || '/'
-const avatar = links.github ? `${links.github}.png` : `${base}vite.svg`
+const fallbackAvatar = `${base}favicon.png`
+const avatar = links.github ? `${links.github}.png` : fallbackAvatar
 
 const Hero = () => {
   const avatarAnimation = useScrollAnimation({ threshold: 0.3 })
@@ -32,7 +33,7 @@ const Hero = () => {
           ref={avatarAnimation.ref as React.RefObject<HTMLImageElement>}
           className={`avatar scale-in ${avatarAnimation.isVisible ? 'visible' : ''}`}
           src={avatar}
-          onError={(e) => { (e.currentTarget as HTMLImageElement).src = `${base}vite.svg` }}
+          onError={(e) => { (e.currentTarget as HTMLImageElement).src = fallbackAvatar }}
           alt={`Profile — ${me.firstName} ${me.lastName}`}
         />
           <div className="hero-text">

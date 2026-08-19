@@ -9,9 +9,9 @@ export const contact = {
 export const profile = {
   firstName: 'Andrija',
   lastName: 'Stanišić',
-  headline: 'Final year Applied Computer Science student @ FTN, University of Novi Sad',
+  headline: 'Full-stack developer · Software engineering student @ FTN, University of Novi Sad',
   summary:
-    'Highly motivated student committed to continuous improvement and learning from experienced colleagues. Passionate about building games, websites, and software — currently shipping Loop 9, a Steam psychological horror with a live AI companion, Unreal C++, and a Symfony backend. Communicative, collaborative, and able to work under pressure.',
+    'Full-stack developer with professional experience building enterprise web applications in React, TypeScript, Symfony, and SQL, and a habit of designing maintainable systems around DDD, SOLID, and clean architecture. Outside of that I ship Loop 9, a Steam psychological horror built in Unreal Engine 5 C++ with a live AI companion on a production Symfony API. Available for flexible part-time and freelance engagements.',
 }
 
 export type EducationItem = {
@@ -24,14 +24,15 @@ export type EducationItem = {
 
 export const education: EducationItem[] = [
   {
+    title: "Bachelor's degree — Software engineering",
+    institution: 'Faculty of Technical Sciences, University of Novi Sad',
+    period: '2022 — Oct 2026',
+    details: 'Final (4th) year.',
+  },
+  {
     title: 'Secondary education — Information Technology',
     institution: 'ESTŠ "Nikola Tesla", Kraljevo',
     period: '2018 — 2022',
-  },
-  {
-    title: 'Faculty of Technical Sciences — Final (4th) year',
-    institution: 'University of Novi Sad',
-    details: 'Programme: Applied Computer Science',
   },
   {
     title: 'Certificate',
@@ -47,60 +48,61 @@ export type ExperienceItem = {
 
 export const experience: ExperienceItem[] = [
   {
+    title: 'Full-Stack Developer — Devione',
+    period: 'November 2025 — Present',
+    description:
+      'Building enterprise web applications in Symfony, React, TypeScript, and Redux Toolkit, delivered in an enterprise environment for The Coca-Cola Company. Design modular systems following DDD, SOLID, and clean code principles, and develop and maintain REST APIs alongside frontend features across the full stack.',
+  },
+  {
     title: 'Independent developer — Loop 9 (Steam)',
     period: '2025 — 2026',
     description:
-      'Solo-developing a psychological horror title for Steam: Unreal Engine 5 C++ client, live AI companion, relationship-driven endings, and a production Symfony API (auth, localization, moderation, provider routing).',
+      'Solo-developing a psychological horror title for Steam: Unreal Engine 5 C++ client, live AI companion, relationship-driven endings, and a production Symfony API (session auth, localization, moderation, provider routing).',
+  },
+]
+
+export type HonorItem = { title: string; period?: string; description?: string }
+
+export const honors: HonorItem[] = [
+  {
+    title: 'AMD Developer Hackathon — accepted',
+    period: 'May 2026',
+    description: 'Qualified for the invite-only on-site finals in San Francisco.',
   },
   {
-    title: 'Full Stack Developer — Devione',
-    period: 'November 2025 — Present',
-    description:
-      'Working as a Full Stack Developer on web development projects, contributing to both frontend and backend solutions.',
-  },
-  {
-    title: 'Microsoft Development Center — Invite-Only Event',
+    title: 'Microsoft Development Center Serbia — Career Booth Experience',
     period: 'Belgrade, November 2025',
     description:
-      'Attended an exclusive invite-only event at the Microsoft Development Center in Belgrade after successfully passing the coding test for a Software Developer position.',
-  },
-  {
-    title: 'Self-driven creator — Games, websites, and software',
-    description:
-      'Focused on building projects to sharpen skills across game development and web technologies; continually experimenting with new tools and frameworks.',
+      'Selected for the invite-only programme after passing Microsoft’s coding assessment for a Software Developer position.',
   },
   {
     title: 'Second place — "Evropski dnevnik" competition',
     period: '2021',
-    description: 'Team of three; achieved second place at the competition.',
+    description: 'Team of three.',
   },
   {
-    title: 'Participation in programming competitions — Petlja.org',
+    title: 'Programming competitions — Petlja.org',
+    description: 'Regular participant.',
   },
 ]
 
-export type SkillItem = { name: string; level: number }
-export type SkillGroup = { category: string; items: SkillItem[] }
+export type SkillGroup = { category: string; items: string[] }
 
 export const skillGroups: SkillGroup[] = [
   {
     category: 'Games',
-    items: [
-      { name: 'C++', level: 80 },
-      { name: 'Unreal Engine 5', level: 80 },
-      { name: 'Unity (C#)', level: 65 },
-    ],
+    items: ['C++', 'Unreal Engine 5', 'Blueprints', 'Unity (C#)'],
   },
   {
     category: 'Full-stack',
     items: [
-      { name: 'React (Redux)', level: 75 },
-      { name: 'TypeScript', level: 75 },
-      { name: 'PHP (Symfony)', level: 70 },
-      { name: 'Node.js (Express)', level: 75 },
-      { name: 'SQL (MySQL, PostgreSQL)', level: 80 },
-      { name: 'Docker', level: 65 },
-      { name: 'Networking (TCP/IP)', level: 60 },
+      'React (Redux)',
+      'TypeScript',
+      'PHP (Symfony)',
+      'Node.js (Express)',
+      'SQL (MySQL, PostgreSQL)',
+      'Docker',
+      'Networking (TCP/IP)',
     ],
   },
 ]
@@ -117,6 +119,7 @@ export type ProjectItem = {
   tags?: string[]
   featured?: boolean
   flagship?: boolean
+  learning?: boolean
   highlights?: string[]
 }
 
@@ -127,16 +130,16 @@ export const webProjects: ProjectItem[] = [
       'A full‑stack web application for browsing a catalog of movies and series with user accounts, ratings, and trivia. The project is split into a frontend (React + Vite + TailwindCSS) and a backend (Express + TypeScript + MySQL) with JWT authentication.',
     codeUrl: 'https://github.com/AndrijaExe/MovieVerse',
     images: [
-      '/movieverse/PocetnaStranica.png',
-      '/movieverse/KatalogFilmova.png',
-      '/movieverse/KatalogSerija.png',
-      '/movieverse/LoginForm.png',
-      '/movieverse/SignUpForm.png',
-      '/movieverse/MyProfile.png',
-      '/movieverse/AdminProfiles.png',
-      '/movieverse/UserMenagmentForAdminsOnly.png',
-      '/movieverse/FunctionsOfLoggedInUser.png',
-      '/movieverse/FullyFunctionalLightAndDarkTheme.png',
+      '/movieverse/PocetnaStranica.webp',
+      '/movieverse/KatalogFilmova.webp',
+      '/movieverse/KatalogSerija.webp',
+      '/movieverse/LoginForm.webp',
+      '/movieverse/SignUpForm.webp',
+      '/movieverse/MyProfile.webp',
+      '/movieverse/AdminProfiles.webp',
+      '/movieverse/UserMenagmentForAdminsOnly.webp',
+      '/movieverse/FunctionsOfLoggedInUser.webp',
+      '/movieverse/FullyFunctionalLightAndDarkTheme.webp',
     ],
     videoUrl: '/movieverse/Intro.mp4',
     tags: ['React', 'TypeScript', 'Vite', 'TailwindCSS', 'Node.js', 'Express', 'REST', 'JWT', 'MySQL'],
@@ -165,10 +168,10 @@ export const gameProjects: ProjectItem[] = [
       '/loop9/lobby.jpg',
       '/loop9/office.jpg',
       '/loop9/phone.jpg',
-      '/loop9/code-six-endings.png',
-      '/loop9/code-ending-router.png',
-      '/loop9/code-anomaly-types.png',
-      '/loop9/code-session-timeline.png',
+      '/loop9/code-six-endings.webp',
+      '/loop9/code-ending-router.webp',
+      '/loop9/code-anomaly-types.webp',
+      '/loop9/code-session-timeline.webp',
     ],
     tags: ['Unreal Engine 5', 'C++', 'Blueprints', 'PHP', 'Symfony', 'Steam'],
     featured: true,
@@ -190,13 +193,13 @@ export const gameProjects: ProjectItem[] = [
     demoUrl: 'https://andrijaexe.itch.io/tic-tac-toe',
     codeUrl: 'https://github.com/AndrijaExe/TwoDesperados_TicTacToe',
     images: [
-      '/tictactoe/main-menu.png',
-      '/tictactoe/game-scene.png',
-      '/tictactoe/round-end-modal.png',
-      '/tictactoe/game-controller.png',
-      '/tictactoe/board-view.png',
-      '/tictactoe/cell-view.png',
-      '/tictactoe/game-controller-under-the-hood.png',
+      '/tictactoe/main-menu.webp',
+      '/tictactoe/game-scene.webp',
+      '/tictactoe/round-end-modal.webp',
+      '/tictactoe/game-controller.webp',
+      '/tictactoe/board-view.webp',
+      '/tictactoe/cell-view.webp',
+      '/tictactoe/game-controller-under-the-hood.webp',
     ],
     tags: ['Unity', 'C#', 'HTML5', 'Game Architecture'],
     highlights: [
@@ -214,12 +217,12 @@ export const gameProjects: ProjectItem[] = [
     codeUrl: 'https://github.com/AndrijaExe/Awaken',
     installerUrl: 'https://www.dropbox.com/scl/fi/epqmidlwps1pcyipv769i/Awaken-Final-Version-Installer.exe?rlkey=4f50xfbu0ppnhsz1rjkequucz&st=l7gys8nv&dl=0',
     images: [
-      '/awaken/AI that is chasing you.png',
-      '/awaken/Battery healt and time.png',
-      '/awaken/Clues that you must collect.png',
-      '/awaken/Main Menu.png',
-      '/awaken/Pause Menu.png',
-      '/awaken/Settings Menu.png',
+      '/awaken/AI that is chasing you.webp',
+      '/awaken/Battery healt and time.webp',
+      '/awaken/Clues that you must collect.webp',
+      '/awaken/Main Menu.webp',
+      '/awaken/Pause Menu.webp',
+      '/awaken/Settings Menu.webp',
     ],
     videoUrl: '/awaken/trailer.mp4',
     tags: ['Unreal Engine 5', 'Blueprints', 'Windows', 'Inno Setup'],
@@ -230,28 +233,30 @@ export const gameProjects: ProjectItem[] = [
     description:
       'A 3D dungeon escape game where I implemented puzzle mechanics, crafted atmospheric environments with advanced lighting effects, and developed C++ systems for item interaction and inventory management.',
     images: [
-      '/dungeonEscape/EnginePhoto.png',
-      '/dungeonEscape/CollectableItemCPP.png',
-      '/dungeonEscape/InteractFunctionality.png',
-      '/dungeonEscape/LockCPPClass.png',
-      '/dungeonEscape/MoverComponentCPP.png',
+      '/dungeonEscape/EnginePhoto.webp',
+      '/dungeonEscape/CollectableItemCPP.webp',
+      '/dungeonEscape/InteractFunctionality.webp',
+      '/dungeonEscape/LockCPPClass.webp',
+      '/dungeonEscape/MoverComponentCPP.webp',
     ],
     videoUrl: '/dungeonEscape/DungeonEscapeIntro.mp4',
-    tags: ['Unreal Engine 5', 'C++', 'GameDev.tv Course'],
+    tags: ['Unreal Engine 5', 'C++'],
     featured: false,
+    learning: true,
   },
   {
     name: 'Obstacle Assault',
     description:
       'A 3D platformer where I customized player input systems, created C++ scripts for dynamic moving platforms, and focused on level design to deliver the best possible user experience.',
     images: [
-      '/obstacleAssault/EditorPhoto.png',
-      '/obstacleAssault/Code2.png',
-      '/obstacleAssault/MovingPlatformCode.png',
+      '/obstacleAssault/EditorPhoto.webp',
+      '/obstacleAssault/Code2.webp',
+      '/obstacleAssault/MovingPlatformCode.webp',
     ],
     videoUrl: '/obstacleAssault/ObstacleAssaultIntro.mp4',
-    tags: ['Unreal Engine 5', 'C++', 'GameDev.tv Course'],
+    tags: ['Unreal Engine 5', 'C++'],
     featured: false,
+    learning: true,
   },
 ]
 
@@ -260,8 +265,8 @@ export const projects: ProjectItem[] = [...webProjects, ...gameProjects]
 
 
 export const extras = [
+  'English — C1 (Advanced)',
   'Driving license — Category B',
-  'English — B2 (Upper-Intermediate)',
 ]
 
 export const links = {

@@ -21,16 +21,9 @@ const Skills = () => {
           {skillGroups.map((group) => (
             <div key={group.category} className="card">
               <h3 style={{ marginTop: 0 }}>{group.category}</h3>
-              <ul className="skill-list">
-                {group.items.map((it) => (
-                  <li key={it.name} className="skill-item">
-                    <div className="skill-header">
-                      <span>{it.name}</span>
-                    </div>
-                    <div className="bar">
-                      <div className="bar-fill" style={{ width: `${it.level}%` }} />
-                    </div>
-                  </li>
+              <ul className="skills" style={{ marginTop: '0.75rem' }}>
+                {group.items.map((name) => (
+                  <li key={name} className="badge">{name}</li>
                 ))}
               </ul>
             </div>

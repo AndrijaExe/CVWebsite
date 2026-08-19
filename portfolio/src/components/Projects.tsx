@@ -118,7 +118,12 @@ const Projects = ({
                         })}
                         aria-label={`Open image: ${captionFromPath(src)}`}
                       >
-                        <img src={assetUrl(src)} alt={`${p.name} — ${captionFromPath(src)}`} />
+                        <img
+                          src={assetUrl(src)}
+                          alt={`${p.name} — ${captionFromPath(src)}`}
+                          loading="lazy"
+                          decoding="async"
+                        />
                       </button>
                       <figcaption className="muted">{captionFromPath(src)}</figcaption>
                     </figure>

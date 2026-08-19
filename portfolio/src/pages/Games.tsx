@@ -16,16 +16,14 @@ const Games = () => {
   const unityTitleAnimation = useScrollAnimation({ threshold: 0.2 })
   const courseTitleAnimation = useScrollAnimation({ threshold: 0.2 })
 
-  const unityGames = gameProjects.filter(
-    game => game.tags?.some(tag => tag.toLowerCase().includes('unity')),
-  )
-  const loop9Game = gameProjects.find(game => game.name.includes('Loop 9'))
-  const awakenGame = gameProjects.find(game => game.name.includes('Awaken'))
-  const courseGames = gameProjects.filter(
-    game =>
-      !game.name.includes('Awaken') &&
-      !game.name.includes('Loop 9') &&
-      !game.tags?.some(tag => tag.toLowerCase().includes('unity')),
+  const isUnity = (game: (typeof gameProjects)[number]) =>
+    game.tags?.some(tag => tag.toLowerCase().includes('unity')) ?? false
+
+  const loop9Game = gameProjects.find(game => game.flagship)
+  const unityGames = gameProjects.filter(isUnity)
+  const learningGames = gameProjects.filter(game => game.learning && !isUnity(game))
+  const unrealGames = gameProjects.filter(
+    game => !game.flagship && !game.learning && !isUnity(game),
   )
 
   useEffect(() => {
@@ -57,54 +55,43 @@ const Games = () => {
           className={`lede animate-on-scroll ${descAnimation.isVisible ? 'visible' : ''}`}
         >
           Flagship work is Loop 9, a Steam psychological horror in Unreal C++ with a live AI companion.
-          Below that: earlier Unreal titles, course projects, and Unity work.
+          Below that: earlier Unreal titles, learning projects, and Unity work.
         </p>
 
-        <section id="loop9" style={{ scrollMarginTop: '90px' }}>
-          {loop9Game && (
+        {loop9Game && (
+          <section id="loop9" style={{ scrollMarginTop: '90px', marginBottom: '3rem' }}>
             <div className="flagship-hero">
               <img src={assetUrl('/loop9/corridor.jpg')} alt="Loop 9 — lobby sign" />
             </div>
-          )}
-        </section>
+            <Projects projectsList={[loop9Game]} showGithubNote={false} />
+          </section>
+        )}
 
-        <section id="unreal" style={{ scrollMarginTop: '90px' }}>
-          <h3
-            ref={courseTitleAnimation.ref as React.RefObject<HTMLHeadingElement>}
-            className={`animate-on-scroll ${courseTitleAnimation.isVisible ? 'visible' : ''}`}
-            style={{ marginTop: '1rem', marginBottom: '1rem' }}
-          >
-            Unreal Games
-          </h3>
+        {unrealGames.length > 0 && (
+          <section id="unreal" style={{ scrollMarginTop: '90px' }}>
+            <h3
+              ref={courseTitleAnimation.ref as React.RefObject<HTMLHeadingElement>}
+              className={`animate-on-scroll ${courseTitleAnimation.isVisible ? 'visible' : ''}`}
+              style={{ marginTop: '1rem', marginBottom: '1rem' }}
+            >
+              Unreal Games
+            </h3>
+            <Projects projectsList={unrealGames} showGithubNote={false} />
+          </section>
+        )}
 
-          {loop9Game && (
-            <div style={{ marginBottom: '3rem' }}>
-              <Projects projectsList={[loop9Game]} />
-            </div>
-          )}
-
-          {/* Awaken - standalone project */}
-          {awakenGame && (
-            <div style={{ marginBottom: '3rem' }}>
-              <Projects projectsList={[awakenGame]} />
-            </div>
-          )}
-        </section>
-
-        {/* Course games section */}
-        {courseGames.length > 0 && (
+        {learningGames.length > 0 && (
           <>
             <h3
               className={`animate-on-scroll ${courseTitleAnimation.isVisible ? 'visible' : ''}`}
-              style={{ marginTop: '3rem', marginBottom: '1rem' }}
+              style={{ marginTop: '3rem', marginBottom: '0.5rem' }}
             >
-              Unreal Engine C++ Course Projects
+              Learning projects
             </h3>
-            <p className={`lede animate-on-scroll ${courseTitleAnimation.isVisible ? 'visible' : ''}`}>
-              The following games were created following the Udemy course: <strong>"Unreal Engine 5 C++ Game Development (Fully Updated in 5.6)"</strong> by GameDev.tv, 
-              officially verified by Epic Games. These projects demonstrate C++ programming, game mechanics implementation, and Unreal Engine 5 development skills.
+            <p className="muted" style={{ marginBottom: '1.5rem' }}>
+              Built while working through GameDev.tv’s Unreal Engine 5 C++ course (Epic Games verified).
             </p>
-            <Projects projectsList={courseGames} />
+            <Projects projectsList={learningGames} showGithubNote={false} />
           </>
         )}
 

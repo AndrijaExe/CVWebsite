@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { contact, links } from '../data/content'
 import { useScrollAnimation } from '../hooks/useScrollAnimation'
 
 const formspreeEndpoint = (import.meta.env.VITE_FORMSPREE_ENDPOINT as string | undefined) || 'https://formspree.io/f/xjkadvwd'
@@ -54,7 +55,26 @@ const Contact = () => {
         >
           Contact
         </h2>
-        
+
+        <ul className="contact-lines">
+          <li>
+            <span className="muted">Email</span>
+            <a className="link" href={`mailto:${contact.email}`}>{contact.email}</a>
+          </li>
+          <li>
+            <span className="muted">LinkedIn</span>
+            <a className="link" href={links.linkedin} target="_blank" rel="noreferrer">andrijastanisic</a>
+          </li>
+          <li>
+            <span className="muted">GitHub</span>
+            <a className="link" href={links.github} target="_blank" rel="noreferrer">AndrijaExe</a>
+          </li>
+          <li>
+            <span className="muted">Based in</span>
+            <span>{contact.city}, {contact.country}</span>
+          </li>
+        </ul>
+
         <form 
           ref={formAnimation.ref as React.RefObject<HTMLFormElement>}
           className={`contact-form animate-on-scroll ${formAnimation.isVisible ? 'visible' : ''}`}

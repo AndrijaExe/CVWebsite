@@ -444,7 +444,7 @@ main {
 }
 
 /* Skills grid + progress bars */
-.skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; align-items: start; }
 .skill-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.75rem; }
 .skill-item { display: grid; gap: 0.4rem; }
 .skill-header { display: flex; justify-content: space-between; align-items: center; font-size: 0.95rem; }
@@ -555,6 +555,27 @@ main {
   background: var(--ink);
 }
 .featured-video { max-height: 480px; }
+
+.contact-lines {
+  list-style: none;
+  margin: 0 0 1.5rem;
+  padding: 0;
+  display: grid;
+  gap: 0.5rem;
+  max-width: 32rem;
+}
+.contact-lines li {
+  display: grid;
+  grid-template-columns: 6.5rem 1fr;
+  gap: 0.75rem;
+  align-items: baseline;
+}
+.contact-lines .muted {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
 
 .contact-form { display: grid; gap: 0.75rem; }
 .contact-form .row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }

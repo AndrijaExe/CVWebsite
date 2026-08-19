@@ -4,6 +4,11 @@ import { useScrollAnimation } from '../hooks/useScrollAnimation'
 import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 
+const assetUrl = (src: string) => {
+  const base = import.meta.env.BASE_URL || '/'
+  return src.startsWith('/') ? base + src.slice(1) : src
+}
+
 const Games = () => {
   const location = useLocation()
   const titleAnimation = useScrollAnimation({ threshold: 0.2 })
@@ -53,19 +58,27 @@ const Games = () => {
           className={`animate-on-scroll ${descAnimation.isVisible ? 'visible' : ''}`}
           style={{ marginBottom: '2rem', maxWidth: '800px', margin: '0 auto 2rem', fontSize: '1.1rem', textAlign: 'center' }}
         >
-          Here I showcase some of the game development projects I am working on or have worked on, demonstrating my skills in Unreal Engine, C++, and game design.
+          Flagship work is Loop 9, a Steam psychological horror in Unreal C++ with a live AI companion.
+          Below that: earlier Unreal titles, course projects, and Unity work.
         </p>
+
+        <section id="loop9" style={{ scrollMarginTop: '90px' }}>
+          {loop9Game && (
+            <div className="flagship-hero">
+              <img src={assetUrl('/loop9/office-loop.jpg')} alt="Loop 9 — the looping office" />
+            </div>
+          )}
+        </section>
 
         <section id="unreal" style={{ scrollMarginTop: '90px' }}>
           <h3
             ref={courseTitleAnimation.ref as React.RefObject<HTMLHeadingElement>}
             className={`animate-on-scroll ${courseTitleAnimation.isVisible ? 'visible' : ''}`}
-            style={{ marginTop: '3rem', marginBottom: '1rem', textAlign: 'center' }}
+            style={{ marginTop: '1rem', marginBottom: '1rem', textAlign: 'center' }}
           >
             Unreal Games
           </h3>
 
-          {/* Loop 9 - flagship project */}
           {loop9Game && (
             <div style={{ marginBottom: '3rem' }}>
               <Projects projectsList={[loop9Game]} />

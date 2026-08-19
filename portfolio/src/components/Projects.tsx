@@ -20,6 +20,16 @@ const captionFromPath = (src: string) => {
     'Main Menu': 'Main menu',
     'Pause Menu': 'Pause menu',
     'Settings Menu': 'Settings menu',
+    'office loop': 'The looping office',
+    'main menu': 'Main menu',
+    'first person': 'First-person on the floor',
+    'phone desk': 'The phone on the desk',
+    'corridor': 'Corridor / LOOP 1',
+    'emergency': 'Emergency lighting',
+    'code six endings': 'C++ — six ending types',
+    'code ending router': 'C++ — ending router (thresholds omitted)',
+    'code anomaly types': 'C++ — nine anomaly types',
+    'code session timeline': 'C++ — session timeline merge',
   }
   return table[pretty] || pretty
 }
@@ -41,7 +51,13 @@ const iconForTech = (label: string) => {
   return svg('M12 2a10 10 0 100 20 10 10 0 000-20z')
 }
 
-const Projects = ({ projectsList = projects }: { projectsList?: ProjectItem[] }) => {
+const Projects = ({
+  projectsList = projects,
+  showGithubNote = true,
+}: {
+  projectsList?: ProjectItem[]
+  showGithubNote?: boolean
+}) => {
   const [lightbox, setLightbox] = useState<null | { items: { src: string; caption: string }[]; index: number; project: string }>(null)
   const projectsAnimation = useScrollAnimation({ threshold: 0.1 })
 
@@ -67,8 +83,9 @@ const Projects = ({ projectsList = projects }: { projectsList?: ProjectItem[] })
         className={`projects-list stagger-children ${projectsAnimation.isVisible ? 'visible' : ''}`}
       >
         {projectsList.map((p) => (
-            <article key={p.name} className={`card project-item${p.featured ? ' featured' : ''}`}>
+            <article key={p.name} className={`card project-item${p.featured ? ' featured' : ''}${p.flagship ? ' flagship' : ''}`}>
               <header>
+                {p.flagship ? <p className="flagship-badge">Flagship · Steam</p> : null}
                 <h3 style={{ marginTop: 0 }}>{p.name}</h3>
               </header>
               {p.description && <p>{p.description}</p>}
@@ -132,10 +149,12 @@ const Projects = ({ projectsList = projects }: { projectsList?: ProjectItem[] })
             </article>
           ))}
         </div>
-        <p className="muted" style={{ marginTop: '0.75rem' }}>
-          For more projects, visit my GitHub profile:
-          {' '}<a href={links.github} target="_blank" rel="noreferrer">{links.github}</a>
-        </p>
+        {showGithubNote ? (
+          <p className="muted" style={{ marginTop: '0.75rem' }}>
+            For more projects, visit my GitHub profile:
+            {' '}<a href={links.github} target="_blank" rel="noreferrer">{links.github}</a>
+          </p>
+        ) : null}
 
         {lightbox && (
           <div className="lightbox-backdrop" role="dialog" aria-modal="true" onClick={(e) => { if (e.target === e.currentTarget) close() }}>

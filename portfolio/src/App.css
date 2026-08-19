@@ -445,6 +445,35 @@ main {
 .video-wrap { display: grid; gap: 0.5rem; }
 .video-wrap video { width: 100%; max-height: 360px; background: #000; border-radius: 8px; border: 1px solid var(--border); }
 .project-item.featured { border-color: var(--primary); box-shadow: 0 0 0 1px color-mix(in oklab, var(--primary), transparent 60%); }
+.project-item.flagship {
+  border-color: var(--heading);
+  box-shadow: 0 0 0 1px color-mix(in oklab, var(--heading), transparent 40%), 0 18px 40px rgba(0, 0, 0, 0.28);
+  padding: 1.25rem;
+}
+.flagship-badge {
+  display: inline-block;
+  margin: 0 0 0.35rem;
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  background: color-mix(in oklab, var(--heading), transparent 82%);
+  color: var(--heading);
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+.flagship-hero {
+  margin: 0 auto 2.5rem;
+  max-width: 100%;
+}
+.flagship-hero img {
+  width: 100%;
+  max-height: 420px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: #0f1724;
+}
 .featured-video { max-height: 480px; }
 
 .contact-form { display: grid; gap: 0.75rem; }

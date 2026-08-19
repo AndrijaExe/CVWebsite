@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { profile as me, links } from '../data/content'
 import { useScrollAnimation } from '../hooks/useScrollAnimation'
 import { useTypingEffect } from '../hooks/useTypingEffect'
@@ -60,7 +61,8 @@ const Hero = () => {
             ref={ctaAnimation.ref as React.RefObject<HTMLDivElement>}
             className={`hero-ctas stagger-children ${ctaAnimation.isVisible ? 'visible' : ''}`}
           >
-            <a className="btn primary" href="#projects">See projects</a>
+            <Link className="btn primary" to="/games#loop9">Loop 9</Link>
+            <a className="btn" href="#projects">See projects</a>
             <a className="btn" href="#contact">Contact me</a>
             {links.github && <a className="btn outline" href={links.github} target="_blank" rel="noreferrer">GitHub</a>}
             {links.linkedin && <a className="btn outline" href={links.linkedin} target="_blank" rel="noreferrer">LinkedIn</a>}

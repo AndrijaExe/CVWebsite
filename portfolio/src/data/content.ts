@@ -11,7 +11,7 @@ export const profile = {
   lastName: 'Stanišić',
   headline: 'Final year Applied Computer Science student @ FTN, University of Novi Sad',
   summary:
-    'Highly motivated student committed to continuous improvement and learning from experienced colleagues. Passionate about building games, websites, and software, and eager to work across different programming languages and technologies. Communicative, collaborative, and able to work under pressure.',
+    'Highly motivated student committed to continuous improvement and learning from experienced colleagues. Passionate about building games, websites, and software — currently shipping Loop 9, a Steam psychological horror with a live AI companion, Unreal C++, and a Symfony backend. Communicative, collaborative, and able to work under pressure.',
 }
 
 export type EducationItem = {
@@ -46,6 +46,12 @@ export type ExperienceItem = {
 }
 
 export const experience: ExperienceItem[] = [
+  {
+    title: 'Independent developer — Loop 9 (Steam)',
+    period: '2025 — 2026',
+    description:
+      'Solo-developing a psychological horror title for Steam: Unreal Engine 5 C++ client, live AI companion, relationship-driven endings, and a production Symfony API (auth, localization, moderation, provider routing).',
+  },
   {
     title: 'Full Stack Developer — Devione',
     period: 'November 2025 — Present',
@@ -91,7 +97,7 @@ export const skillGroups: SkillGroup[] = [
     category: 'Web — Backend',
     items: [
       { name: 'Node.js', level: 75 },
-      { name: 'PHP', level: 20 },
+      { name: 'PHP', level: 45 },
       { name: 'SQL', level: 80 },
       { name: '.NET', level: 55 },
       { name: 'Java', level: 30 },
@@ -138,6 +144,7 @@ export type ProjectItem = {
   installerUrl?: string
   tags?: string[]
   featured?: boolean
+  flagship?: boolean
   highlights?: string[]
 }
 
@@ -176,6 +183,36 @@ export const webProjects: ProjectItem[] = [
 
 export const gameProjects: ProjectItem[] = [
   {
+    name: 'Loop 9',
+    description:
+      'A psychological horror about a floor that repeats. Spot what changed, pick the right elevator, and decide how much you trust the tired voice on the phone. Built solo in Unreal Engine 5 C++ with a live AI companion and a production Symfony backend — six endings come from how you treat him, not from a dialogue tree.',
+    backendUrl: 'https://github.com/AndrijaExe/Loop9_backend',
+    images: [
+      '/loop9/office-loop.jpg',
+      '/loop9/main-menu.jpg',
+      '/loop9/first-person.jpg',
+      '/loop9/phone-desk.jpg',
+      '/loop9/corridor.jpg',
+      '/loop9/emergency.jpg',
+      '/loop9/code-six-endings.png',
+      '/loop9/code-ending-router.png',
+      '/loop9/code-anomaly-types.png',
+      '/loop9/code-session-timeline.png',
+    ],
+    tags: ['Unreal Engine 5', 'C++', 'Blueprints', 'PHP', 'Symfony', 'Steam'],
+    featured: true,
+    flagship: true,
+    highlights: [
+      'Flagship project: Steam title (App ID 4982260), ~60–90 minute runs built for replay.',
+      'Nine anomaly types on a looping office floor — hide, move, light, audio, text, locked doors, pursuer, scale, phantom chat.',
+      'Live phone chat with Dragojlo: no dialogue trees; he answers in the player language and remembers how he was treated.',
+      'Hidden relationship meters (trust, kindness, suspicion, cooperation, dependency, AI stability) steer six distinct endings.',
+      'Client in Unreal 5 C++; production API in Symfony (session auth, localization EN/SR/DE/FR/RU, moderation, failover).',
+      'Post-run timeline and ending archive are driven from play data, not a raw stat dump.',
+      'Backend repository: https://github.com/AndrijaExe/Loop9_backend',
+    ],
+  },
+  {
     name: 'TIC-TAC-TOE',
     description:
       'A polished browser-playable Tic-Tac-Toe game made in Unity. The UI is intentionally minimalist because the focus for this assignment was backend/gameplay functionality, architecture, and clean system separation.',
@@ -197,34 +234,6 @@ export const gameProjects: ProjectItem[] = [
       'Architecture is layered to keep gameplay logic separate from presentation and scene flow.',
       'Code hierarchy by responsibility: GameController (highest level) -> BoardView (contains cells) -> CellView (single board cell).',
       'UI is intentionally minimal; priority was robust gameplay/backend functionality and maintainable code structure.',
-    ],
-  },
-  {
-    name: 'Loop 9',
-    description:
-      'Loop 9 is a psychological horror game inspired by titles like The Exit 8, focused on perception, anomalies, and reality manipulation. The player is trapped in an office and must recognize subtle environmental changes to progress through loops while communicating with an adaptive AI entity through an in-game phone chat.',
-    backendUrl: 'https://github.com/AndrijaExe/Loop9_backend',
-    images: [
-      '/loop9/main-menu.png',
-      '/loop9/ai-integration-1.png',
-      '/loop9/ai-integration-2.png',
-      '/loop9/ai-integration-3.png',
-      '/loop9/ai-integration-4.png',
-      '/loop9/ai-integration-5.png',
-      '/loop9/anomaly-management-1.png',
-      '/loop9/anomaly-management-2.png',
-      '/loop9/button-component.png',
-    ],
-    tags: ['Unreal Engine 5', 'C++', 'Blueprints', 'AI Gameplay Systems'],
-    featured: true,
-    highlights: [
-      'The AI can help, lie, manipulate player choices, or evolve a relationship with the player.',
-      'Core loop system: each loop is a new iteration of the same space with anomaly variations.',
-      'Player decisions about what is "wrong" directly impact game progression and AI behavior.',
-      'Adaptive AI parameters: Trust, Kindness, Suspicion, Cooperation, Dependency, and hidden AI Stability.',
-      'These hidden values change AI tone, memory behavior across loops, and drive multiple endings.',
-      'Primary interaction is a phone-based chat where AI replies in real time based on game state.',
-      'Backend repository: https://github.com/AndrijaExe/Loop9_backend',
     ],
   },
   {

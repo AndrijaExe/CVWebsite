@@ -16,6 +16,7 @@ const Navbar = () => {
         </button>
         <ul className={open ? 'open' : undefined} onClick={() => setOpen(false)}>
           <li><Link to="/">Web Development</Link></li>
+          <li><Link to="/games#loop9">Loop 9</Link></li>
           <li><Link to="/games#unreal">Unreal Games</Link></li>
           <li><Link to="/games#unity">Unity Games</Link></li>
         </ul>

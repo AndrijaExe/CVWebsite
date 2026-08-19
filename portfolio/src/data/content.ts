@@ -188,11 +188,10 @@ export const gameProjects: ProjectItem[] = [
       'A psychological horror about a floor that repeats. Spot what changed, pick the right elevator, and decide how much you trust the tired voice on the phone. Built solo in Unreal Engine 5 C++ with a live AI companion and a production Symfony backend — six endings come from how you treat him, not from a dialogue tree.',
     backendUrl: 'https://github.com/AndrijaExe/Loop9_backend',
     images: [
-      '/loop9/office-loop.jpg',
+      '/loop9/corridor.jpg',
       '/loop9/main-menu.jpg',
       '/loop9/first-person.jpg',
       '/loop9/phone-desk.jpg',
-      '/loop9/corridor.jpg',
       '/loop9/emergency.jpg',
       '/loop9/code-six-endings.png',
       '/loop9/code-ending-router.png',

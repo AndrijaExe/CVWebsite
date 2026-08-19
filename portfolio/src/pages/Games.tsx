@@ -65,7 +65,7 @@ const Games = () => {
         <section id="loop9" style={{ scrollMarginTop: '90px' }}>
           {loop9Game && (
             <div className="flagship-hero">
-              <img src={assetUrl('/loop9/office-loop.jpg')} alt="Loop 9 — the looping office" />
+              <img src={assetUrl('/loop9/corridor.jpg')} alt="Loop 9 — lobby sign" />
             </div>
           )}
         </section>

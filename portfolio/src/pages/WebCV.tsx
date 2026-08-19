@@ -21,8 +21,8 @@ const WebCV = () => {
           <div className="container">
             <h2>Flagship game</h2>
             <Projects projectsList={gameProjects.filter((game) => game.flagship)} showGithubNote={false} />
-            <p className="muted" style={{ marginTop: '0.75rem' }}>
-              <Link to="/games#loop9">Full screenshots and systems on the games page →</Link>
+            <p style={{ marginTop: '0.75rem' }}>
+              <Link className="link" to="/games#loop9">Full screenshots and systems on the games page →</Link>
             </p>
           </div>
         </section>

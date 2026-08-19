@@ -578,8 +578,13 @@ main {
   margin: 0 0 0.4rem;
 }
 .footer p:nth-of-type(2) { color: var(--heading); }
-.footer .link { color: var(--text); text-decoration: underline; text-underline-offset: 3px; transition: color .15s ease; }
-.footer .link:hover { color: var(--primary); }
+a.link {
+  color: var(--text);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color .15s ease;
+}
+a.link:hover { color: var(--primary); }
 
 /* Scroll to top button */
 .scroll-top-btn {

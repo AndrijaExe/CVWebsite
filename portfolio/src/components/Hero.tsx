@@ -59,7 +59,7 @@ const Hero = () => {
             <a className="btn" href="#contact">Contact me</a>
             {links.github && <a className="btn outline" href={links.github} target="_blank" rel="noreferrer">GitHub</a>}
             {links.linkedin && <a className="btn outline" href={links.linkedin} target="_blank" rel="noreferrer">LinkedIn</a>}
-            <a className="btn outline" href={`${base}cv.pdf`} download>Download CV</a>
+            <a className="btn outline" href={`${base}cv.pdf`} download="Andrija_Stanisic_FullStack.pdf">Download CV</a>
           </div>
         </div>
       </div>

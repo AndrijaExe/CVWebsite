@@ -84,10 +84,11 @@ export type SkillGroup = { category: string; items: SkillItem[] }
 
 export const skillGroups: SkillGroup[] = [
   {
-    category: 'Loop 9 — Game',
+    category: 'Games',
     items: [
       { name: 'C++', level: 80 },
       { name: 'Unreal Engine 5', level: 80 },
+      { name: 'Unity (C#)', level: 65 },
     ],
   },
   {

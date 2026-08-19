@@ -84,51 +84,22 @@ export type SkillGroup = { category: string; items: SkillItem[] }
 
 export const skillGroups: SkillGroup[] = [
   {
-    category: 'Web — Frontend',
+    category: 'Loop 9 — Game',
     items: [
-      { name: 'HTML', level: 90 },
-      { name: 'CSS', level: 75 },
-      { name: 'React', level: 75 },
-      { name: 'Angular', level: 35 },
-      { name: 'TypeScript', level: 75 },
-    ],
-  },
-  {
-    category: 'Web — Backend',
-    items: [
-      { name: 'Node.js', level: 75 },
-      { name: 'PHP', level: 45 },
-      { name: 'SQL', level: 80 },
-      { name: '.NET', level: 55 },
-      { name: 'Java', level: 30 },
-      { name: 'Python', level: 40 },
-    ],
-  },
-  {
-    category: 'Languages & CS',
-    items: [
-      { name: 'C', level: 75 },
       { name: 'C++', level: 80 },
-      { name: 'C#', level: 85 },
-      { name: 'Julia', level: 25 },
-      { name: 'Assembly', level: 30 },
-      { name: 'VHDL', level: 20 },
-  { name: 'Matlab', level: 40 },
+      { name: 'Unreal Engine 5', level: 80 },
     ],
   },
   {
-    category: 'Game Development',
+    category: 'Full-stack',
     items: [
-      { name: 'Unity', level: 65 },
-      { name: 'Unreal Engine', level: 80 },
-    ],
-  },
-  {
-    category: 'Tools & Networking',
-    items: [
-      { name: 'Git', level: 85 },
-      { name: 'Jira', level: 60 },
-      { name: 'TCP/IP', level: 60 },
+      { name: 'React (Redux)', level: 75 },
+      { name: 'TypeScript', level: 75 },
+      { name: 'PHP (Symfony)', level: 70 },
+      { name: 'Node.js (Express)', level: 75 },
+      { name: 'SQL (MySQL, PostgreSQL)', level: 80 },
+      { name: 'Docker', level: 65 },
+      { name: 'Networking (TCP/IP)', level: 60 },
     ],
   },
 ]
